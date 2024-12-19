@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 import path from 'path';
 import { promises as fs } from 'fs';
-import { SpawnOptionsWithoutStdio, ChildProcessWithoutNullStreams } from 'child_process';
+import { ChildProcessWithoutNullStreams } from 'child_process';
 
 // Type for file write operation data
 interface FileWriteData {
