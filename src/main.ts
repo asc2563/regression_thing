@@ -78,7 +78,7 @@ const createWindow = (): void => {
       ]
     },
     {
-      label: 'Data', // New button label
+      label: 'analysis', // New button label
       submenu: [
         {
           label: 'Regression',
