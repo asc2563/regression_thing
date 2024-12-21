@@ -55,6 +55,8 @@
         "electron-squirrel-startup": "^1.0.1",
         "postcss": "^8.4.49",
         "react": "^19.0.0",
-        "react-dom": "^19.0.0"
+        "react-dom": "^19.0.0",
+        "react-router": "^7.1.0",
+        "react-router-dom": "^7.1.0"
     }
 }

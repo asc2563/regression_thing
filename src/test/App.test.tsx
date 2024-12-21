@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import App from "../App";
+import App from "../render/App";
 
-describe("App", () => {
+describe("Tests for / Route", () => {
     it("renders hello world text", () => {
         render(<App />);
         expect(screen.getByText("Hello World!")).toBeInTheDocument();

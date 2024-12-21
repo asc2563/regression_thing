@@ -45,12 +45,13 @@ const createWindow = (): void => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.ts'),
       contextIsolation: true,
       nodeIntegration: false,
     },
   });
 
+  console.log(`Loading Vite dev server at ${MAIN_WINDOW_VITE_DEV_SERVER_URL + "/cool"}`);
   // Load the index.html of the app.
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
     mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
@@ -58,6 +59,7 @@ const createWindow = (): void => {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
 
+  mainWindow.webContents.openDevTools();
   // Define menu template
   const menuTemplate: Electron.MenuItemConstructorOptions[] = [
     {
@@ -84,6 +86,20 @@ const createWindow = (): void => {
           label: 'Regression',
           click: () => {
             console.log('Do Regression thingy');
+            const AnothermainWindow = new BrowserWindow({
+              width: 800,
+              height: 600,
+              webPreferences: {
+                preload: path.join(__dirname, 'preload.ts'),
+                contextIsolation: true,
+                nodeIntegration: false,
+              },
+            });
+
+
+            AnothermainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL + "/cool");
+
+
           }
         }
       ]
