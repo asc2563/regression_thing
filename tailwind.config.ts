@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
-import tailwindcss from 'tailwindcss';
-
-export default defineConfig({
-    plugins: [
-        tailwindcss({
-            config: './tailwind.config.ts',
-        }),
+export default {
+    content: [
+        "./src/**/*.{js,jsx,ts,tsx}",
+        "./index.html",
     ],
-});
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+};

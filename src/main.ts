@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
+import { app, BrowserWindow, ipcMain, IpcMainEvent, IpcMainInvokeEvent, Menu } from 'electron';
 import path from 'path';
 import { promises as fs } from 'fs';
 import { ChildProcessWithoutNullStreams } from 'child_process';
@@ -58,8 +58,41 @@ const createWindow = (): void => {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // Define menu template
+  const menuTemplate: Electron.MenuItemConstructorOptions[] = [
+    {
+      label: 'File',
+      submenu: [
+        { role: 'quit' }
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' }
+      ]
+    },
+    {
+      label: 'Data', // New button label
+      submenu: [
+        {
+          label: 'Regression',
+          click: () => {
+            console.log('Do Regression thingy');
+          }
+        }
+      ]
+    }
+  ];
+
+  // Set application menu
+  const menu = Menu.buildFromTemplate(menuTemplate);
+  Menu.setApplicationMenu(menu);
 };
 
 // File system write operation

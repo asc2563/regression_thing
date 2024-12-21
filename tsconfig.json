@@ -11,6 +11,13 @@
         "outDir": "dist",
         "jsx": "react-jsx",
         "moduleResolution": "node",
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "paths": {
+            "@/*": ["./src/*"],
+            "@lib/*": ["./src/lib/*"],
+            "@hooks/*": ["./src/lib/hooks/*"],
+            "@db/*": ["./src/lib/db/*"],
+            "@types": ["./src/lib/types.ts"]
+        }
     }
 }

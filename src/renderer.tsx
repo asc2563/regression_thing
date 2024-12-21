@@ -1,4 +1,4 @@
-import "./index.css";
+import "./main.css";
 
 console.log(
     '👋 This message is being logged by "renderer.tsx", included via Vite'
